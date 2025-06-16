@@ -23,8 +23,7 @@ function loadData() {
     multiplier: 1,
     upgradeCost: 10,
     offlineTimeTotal: 0,
-    onlineTimeTotal: 0,
-    mode: "offline", // 'offline' oder 'online'
+    mode: "offline", // 'offline' 
     onlinePoints: 0,
     endTriggered: false
   };
@@ -47,13 +46,6 @@ function updateDisplay() {
   multiplierDisplay.textContent = `${data.multiplier}x`;
   upgradeCost.textContent = data.upgradeCost;
 
-  if (data.points >= 1000000000 && !toggleBtn) {
-    const btn = document.createElement("button");
-    btn.id = "toggleModeBtn";
-    btn.textContent = "Wechsle zu Online";
-    btn.onclick = toggleMode;
-    document.getElementById("upgradeSection").appendChild(btn);
-  }
 
   const lastDuration = data.mode === "offline"
     ? Date.now() - data.lastOnline
